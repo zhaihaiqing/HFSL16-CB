@@ -116,10 +116,10 @@ typedef struct{
 	
 	unsigned char Sensor_Type;
 	unsigned char Sample_Status;
-	unsigned int  Freq_Value;
+	float  		  Freq_Value;
 	unsigned char DB_Value;
 	int16_t       Err_Value;
-	int           Temp_Value;
+	float         Temp_Value;
 	
 }Send_ChDATA_tagdef;
 
@@ -130,6 +130,10 @@ typedef struct{
 	unsigned char SensorType;	//定义传感器类型缓存，用于接收I2C发送过来的传感器类型数据
 }Receive_CfgDATA_tagdef;
 
+typedef union{			//float型数据大小端格式转换
+	float f;
+	char c[4];
+}FLOAT_CONV;
 
 typedef struct{
 	
