@@ -411,14 +411,16 @@ void Auto_Smaple(void)
 {
 	unsigned char i;
 	for(i=1;i<5;i++)
-	{			
+	{		
+		FreqValue =0;
+		temp_data=0;
 		(void)get_temp_analog(0,i);	//执行模拟温度采样，先执行模拟采样，成功该位置0  
-		if(temp_data<-75)				//失败执行数字采样，成功该位置1
+		if(temp_data<TEMPSENSOR_LIMIT)				//失败执行数字采样，成功该位置1
 		{	
 			(void)get_temp_ds18b20(i);//再执行数字温度采样
 			 SensorType_Flag = 0x01;        
 		}
-		if(temp_data<-75)
+		if(temp_data<TEMPSENSOR_LIMIT)
 		{
 			TEMP_Flag=0x01;//标记温度采样失败//都失败
 #ifdef	Debug_EN
@@ -426,8 +428,11 @@ void Auto_Smaple(void)
 #endif
 		}
 		/***********再执行激励采样**********************/
-		if(!TEMP_Flag)(void)(get_stress(i));
-		DataPrepare(i);	
+		if(!TEMP_Flag)
+			{
+				(void)(get_stress(i));
+				DataPrepare(i);
+			}
 	}
 }
 
@@ -447,12 +452,12 @@ void Half_Auto_Sample(void)
 		if(Receive_CfgDATA.Ch & DATA_tmp)
 		{
 			(void)get_temp_analog(0,i);	//执行模拟温度采样，先执行模拟采样，成功该位置0  
-			if(temp_data<-75)				//失败执行数字采样，成功该位置1
+			if(temp_data<TEMPSENSOR_LIMIT)				//失败执行数字采样，成功该位置1
 			{	
 				(void)get_temp_ds18b20(i);//再执行数字温度采样
 				SensorType_Flag = 0x01;        
 			}
-			if(temp_data<-75)
+			if(temp_data<TEMPSENSOR_LIMIT)
 			{
 				TEMP_Flag=0x01;//标记温度采样失败//都失败
 #ifdef	Debug_EN
@@ -490,7 +495,7 @@ void Manual_Sample(void)
 			}
 			else
 				(void)get_temp_analog(0,i);//执行模拟采样
-			if(temp_data<-75)
+			if(temp_data<TEMPSENSOR_LIMIT)
 			{
 				TEMP_Flag=0x01;//标记温度采样失败//都失败
 #ifdef	Debug_EN
@@ -520,7 +525,7 @@ void Process(void)
 			
 	else if(Receive_CfgDATA.SampleType==1) Half_Auto_Sample();       //半自动模式（按选择的通道判别传感器类型）
 			
-	else				   Manual_Sample();          //手动模式（按选择的通道、传感器类型采样）
+	else				                   Manual_Sample();          //手动模式（按选择的通道、传感器类型采样）
 }
 
 /*******************************************************************************
@@ -553,7 +558,7 @@ int main(void)
 	while(!I2C_Received_Flag);      //等待主机发送采样指令
 	(void)Instruction_Check();		//指令检查函数
 //	Receive_CfgDATA.SampleType= 2;
-//	Receive_CfgDATA.Ch         = 0x0a;
+//	Receive_CfgDATA.Ch        = 0x0a;
 //	Receive_CfgDATA.SensorType= 2;
 	
 	Process();	//采样任务

@@ -16,7 +16,8 @@
 
 #pragma   pack(1)										    //结构体单字节对齐方式      #pragma pack(n)
 
-//#define   WatchDog_EN
+#define   TEMPSENSOR_LIMIT				-45
+#define   WatchDog_EN
 #define		Debug_EN
 
 #define SystemResetSoft								*((uint32_t *)0xe000ed0c)=0x05fa0004; //实现系统软件复位

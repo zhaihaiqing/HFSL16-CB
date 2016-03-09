@@ -1,6 +1,6 @@
 Dependencies for Project 'Project', Target 'STM32L1XX_MD(STM32L1xxxBxx)': (DO NOT MODIFY !)
-F (..\main.c)(0x56D9480D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc -IC:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include -IC:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include-I "E:\HD\HFSL16\HFS1601-CB\HFSL16_CB_V1.0.0_Software -V1.0.1\Project\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32L1XX_MD -DUSE_STDPERIPH_DRIVER -DSTM32L1XX_MD -DUSE_STM32L152_EVAL-o .\stm32l152-eval\main.o --omf_browse .\stm32l152-eval\main.crf --depend .\stm32l152-eval\main.d)
-I (..\main.h)(0x56D945F3)
+F (..\main.c)(0x56DFCD91)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc -IC:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include -IC:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include-I "E:\HD\HFSL16\HFS1601-CB\HFSL16_CB_V1.0.0_Software -V1.0.1\Project\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32L1XX_MD -DUSE_STDPERIPH_DRIVER -DSTM32L1XX_MD -DUSE_STM32L152_EVAL-o .\stm32l152-eval\main.o --omf_browse .\stm32l152-eval\main.crf --depend .\stm32l152-eval\main.d)
+I (..\main.h)(0x56DFCD7B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
@@ -33,7 +33,7 @@ I (..\i2c.h)(0x568F7576)
 I (..\InputCapture.h)(0x5600CEF4)
 I (..\ds18b20.h)(0x56D94475)
 F (..\stm32l1xx_it.c)(0x5690CCAB)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc -IC:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include -IC:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include-I "E:\HD\HFSL16\HFS1601-CB\HFSL16_CB_V1.0.0_Software -V1.0.1\Project\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32L1XX_MD -DUSE_STDPERIPH_DRIVER -DSTM32L1XX_MD -DUSE_STM32L152_EVAL-o .\stm32l152-eval\stm32l1xx_it.o --omf_browse .\stm32l152-eval\stm32l1xx_it.crf --depend .\stm32l152-eval\stm32l1xx_it.d)
-I (..\main.h)(0x56D945F3)
+I (..\main.h)(0x56DFCD7B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
@@ -66,7 +66,7 @@ I (..\i2c.h)(0x568F7576)
 I (..\InputCapture.h)(0x5600CEF4)
 I (..\ds18b20.h)(0x56D94475)
 F (..\gpio.c)(0x56AECEDE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc -IC:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include -IC:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include-I "E:\HD\HFSL16\HFS1601-CB\HFSL16_CB_V1.0.0_Software -V1.0.1\Project\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32L1XX_MD -DUSE_STDPERIPH_DRIVER -DSTM32L1XX_MD -DUSE_STM32L152_EVAL-o .\stm32l152-eval\gpio.o --omf_browse .\stm32l152-eval\gpio.crf --depend .\stm32l152-eval\gpio.d)
-I (..\main.h)(0x56D945F3)
+I (..\main.h)(0x56DFCD7B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
@@ -99,7 +99,7 @@ I (..\i2c.h)(0x568F7576)
 I (..\InputCapture.h)(0x5600CEF4)
 I (..\ds18b20.h)(0x56D94475)
 F (..\SPI.c)(0x568A0977)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc -IC:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include -IC:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include-I "E:\HD\HFSL16\HFS1601-CB\HFSL16_CB_V1.0.0_Software -V1.0.1\Project\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32L1XX_MD -DUSE_STDPERIPH_DRIVER -DSTM32L1XX_MD -DUSE_STM32L152_EVAL-o .\stm32l152-eval\spi.o --omf_browse .\stm32l152-eval\spi.crf --depend .\stm32l152-eval\spi.d)
-I (..\main.h)(0x56D945F3)
+I (..\main.h)(0x56DFCD7B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
@@ -132,7 +132,7 @@ I (..\i2c.h)(0x568F7576)
 I (..\InputCapture.h)(0x5600CEF4)
 I (..\ds18b20.h)(0x56D94475)
 F (..\time.c)(0x568A2514)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc -IC:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include -IC:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include-I "E:\HD\HFSL16\HFS1601-CB\HFSL16_CB_V1.0.0_Software -V1.0.1\Project\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32L1XX_MD -DUSE_STDPERIPH_DRIVER -DSTM32L1XX_MD -DUSE_STM32L152_EVAL-o .\stm32l152-eval\time.o --omf_browse .\stm32l152-eval\time.crf --depend .\stm32l152-eval\time.d)
-I (..\main.h)(0x56D945F3)
+I (..\main.h)(0x56DFCD7B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
@@ -165,7 +165,7 @@ I (..\i2c.h)(0x568F7576)
 I (..\InputCapture.h)(0x5600CEF4)
 I (..\ds18b20.h)(0x56D94475)
 F (..\I2C.c)(0x568F7E91)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc -IC:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include -IC:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include-I "E:\HD\HFSL16\HFS1601-CB\HFSL16_CB_V1.0.0_Software -V1.0.1\Project\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32L1XX_MD -DUSE_STDPERIPH_DRIVER -DSTM32L1XX_MD -DUSE_STM32L152_EVAL-o .\stm32l152-eval\i2c.o --omf_browse .\stm32l152-eval\i2c.crf --depend .\stm32l152-eval\i2c.d)
-I (..\main.h)(0x56D945F3)
+I (..\main.h)(0x56DFCD7B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
@@ -198,7 +198,7 @@ I (..\i2c.h)(0x568F7576)
 I (..\InputCapture.h)(0x5600CEF4)
 I (..\ds18b20.h)(0x56D94475)
 F (..\uart.c)(0x56A1DB77)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc -IC:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include -IC:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include-I "E:\HD\HFSL16\HFS1601-CB\HFSL16_CB_V1.0.0_Software -V1.0.1\Project\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32L1XX_MD -DUSE_STDPERIPH_DRIVER -DSTM32L1XX_MD -DUSE_STM32L152_EVAL-o .\stm32l152-eval\uart.o --omf_browse .\stm32l152-eval\uart.crf --depend .\stm32l152-eval\uart.d)
-I (..\main.h)(0x56D945F3)
+I (..\main.h)(0x56DFCD7B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
@@ -231,7 +231,7 @@ I (..\i2c.h)(0x568F7576)
 I (..\InputCapture.h)(0x5600CEF4)
 I (..\ds18b20.h)(0x56D94475)
 F (..\pwm.c)(0x568CB678)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc -IC:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include -IC:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include-I "E:\HD\HFSL16\HFS1601-CB\HFSL16_CB_V1.0.0_Software -V1.0.1\Project\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32L1XX_MD -DUSE_STDPERIPH_DRIVER -DSTM32L1XX_MD -DUSE_STM32L152_EVAL-o .\stm32l152-eval\pwm.o --omf_browse .\stm32l152-eval\pwm.crf --depend .\stm32l152-eval\pwm.d)
-I (..\main.h)(0x56D945F3)
+I (..\main.h)(0x56DFCD7B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
@@ -264,7 +264,7 @@ I (..\i2c.h)(0x568F7576)
 I (..\InputCapture.h)(0x5600CEF4)
 I (..\ds18b20.h)(0x56D94475)
 F (..\InputCapture.c)(0x5690C2F9)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc -IC:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include -IC:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include-I "E:\HD\HFSL16\HFS1601-CB\HFSL16_CB_V1.0.0_Software -V1.0.1\Project\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32L1XX_MD -DUSE_STDPERIPH_DRIVER -DSTM32L1XX_MD -DUSE_STM32L152_EVAL-o .\stm32l152-eval\inputcapture.o --omf_browse .\stm32l152-eval\inputcapture.crf --depend .\stm32l152-eval\inputcapture.d)
-I (..\main.h)(0x56D945F3)
+I (..\main.h)(0x56DFCD7B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
@@ -298,7 +298,7 @@ I (..\InputCapture.h)(0x5600CEF4)
 I (..\ds18b20.h)(0x56D94475)
 F (..\ds18b20.c)(0x56D9469E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc -IC:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include -IC:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include-I "E:\HD\HFSL16\HFS1601-CB\HFSL16_CB_V1.0.0_Software -V1.0.1\Project\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32L1XX_MD -DUSE_STDPERIPH_DRIVER -DSTM32L1XX_MD -DUSE_STM32L152_EVAL-o .\stm32l152-eval\ds18b20.o --omf_browse .\stm32l152-eval\ds18b20.crf --depend .\stm32l152-eval\ds18b20.d)
 I (..\ds18b20.h)(0x56D94475)
-I (..\main.h)(0x56D945F3)
+I (..\main.h)(0x56DFCD7B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
