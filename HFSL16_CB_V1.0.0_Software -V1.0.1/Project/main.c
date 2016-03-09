@@ -412,8 +412,9 @@ void Auto_Smaple(void)
 	unsigned char i;
 	for(i=1;i<5;i++)
 	{		
+		TEMP_Flag =0;
 		FreqValue =0;
-		temp_data=0;
+		temp_data =0;
 		(void)get_temp_analog(0,i);	//执行模拟温度采样，先执行模拟采样，成功该位置0  
 		if(temp_data<TEMPSENSOR_LIMIT)				//失败执行数字采样，成功该位置1
 		{	
