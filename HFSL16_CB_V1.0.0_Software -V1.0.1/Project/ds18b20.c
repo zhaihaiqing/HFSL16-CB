@@ -150,7 +150,7 @@ float DS18B20_TEMP(void)
 	{
 		temp=~temp+1;
 		tt=temp*0.0625;
-		tt=tt*10+0.5;//温度数据，+5是四舍五入
+		//tt=tt+0.5;//温度数据，+5是四舍五入
 #ifdef	Debug_EN
 		printf("-%.3f℃\r\n",tt/1000);
 #endif
@@ -159,7 +159,7 @@ float DS18B20_TEMP(void)
 	else 
 	{
 		tt=temp*0.0625;
-		tt=tt*10+0.5;//温度数据，+5是四舍五入
+		//tt=tt+0.5;//温度数据，+5是四舍五入
 #ifdef	Debug_EN
 		printf("temp:%.3f℃\r\n",tt);
 #endif
