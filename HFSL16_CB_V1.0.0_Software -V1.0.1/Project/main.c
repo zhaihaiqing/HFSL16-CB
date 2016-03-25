@@ -194,7 +194,7 @@ static uint8_t db;
 uint16_t err_cnt;
 char sample_stress_channel(unsigned char channel)//参数1234
 {
-	uint16_t ival;
+	float ival;
 	float freq32;
 	uint16_t i;
 #ifdef	Debug_EN
@@ -227,7 +227,7 @@ char sample_stress_channel(unsigned char channel)//参数1234
 		}
 		calc_itval_r2(databuf2, DATALEN, &ival, &db);
 #ifdef	Debug_EN
-		printf("Chan %d before_filter:k= %d db= %d freq= %d\r\n",channel, ival, db, (uint32_t) SystemCoreClock / ival);
+		printf("Chan %d before_filter:k= %f db= %d freq= %.3f\r\n",channel, ival, db, (float) SystemCoreClock / ival);
 #endif
 		err_cnt = interval_filter(databuf2, DATALEN, &ival, &db);
 #ifdef	Debug_EN
@@ -238,7 +238,7 @@ char sample_stress_channel(unsigned char channel)//参数1234
 
 		freq32 = ((float)SystemCoreClock )/ ival;
 #ifdef	Debug_EN
-		printf("Chan %d after_filter:k= %d db= %d err_cnt= %d freq= %.3f\t%d\r\n",channel, ival, db,err_cnt, freq32 ,(uint32_t)freq32);
+		printf("Chan %d after_filter:k= %f db= %d err_cnt= %d freq= %.3f\r\n",channel, ival, db,err_cnt, freq32 );
 #endif
 		FreqValue=freq32;
 		if((db < 35) || (err_cnt > 10))return ERROR;//测量失败则返回错误		
@@ -363,6 +363,7 @@ uint16_t get_stress(unsigned char Channel)//参数1234
 *******************************************************************************/
 void DataPrepare(unsigned char Channel)//参数1234
 {
+		Send_Buff.Sensor_Data[Channel-1].Sample_Status                    = 0x00;
 		Send_Buff.Frame_Length                                            = sizeof(Send_Buff);  //计算需要发送帧数据的长度
 	    Send_Buff.Sensor_Data[Channel-1].Sensor_Type                      = SensorType_Flag;
 		if(TEMP_Flag)  Send_Buff.Sensor_Data[Channel-1].Sample_Status    |= 0x01;
@@ -544,18 +545,21 @@ int main(void)
 	TIM6_Configuration();     //TIM6  延时
 	NVIC_TIM6_Configuration();//TIM6中断配置
 	GPIO_Configuration();     //GPIO
+	I2C1_Init();
 #ifdef  Debug_EN
 	UART3_Configuration(115200);//UART3  调试打印
 #endif
 	SPI1_Configuration();
 	TIM2_Configuration();
 	PWM_Configuration(6000,50);
-	I2C1_Init();
 	
 #ifdef	Debug_EN
 	printf("Hardware had ready!\r\n");
 #endif
-	
+	Send_Buff.Sensor_Data[0].Sample_Status                    = 0x03;
+	Send_Buff.Sensor_Data[1].Sample_Status                    = 0x03;
+	Send_Buff.Sensor_Data[2].Sample_Status                    = 0x03;
+	Send_Buff.Sensor_Data[3].Sample_Status                    = 0x03;
 	while(!I2C_Received_Flag);      //等待主机发送采样指令
 	(void)Instruction_Check();		//指令检查函数
 //	Receive_CfgDATA.SampleType= 2;

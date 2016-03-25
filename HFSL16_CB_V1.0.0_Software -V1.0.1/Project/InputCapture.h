@@ -13,8 +13,8 @@ void TIM2_Configuration(void);
 void TIM2_Enable();
 void TIM2_Disable(void);
 void NVIC_TIM2_Configuration(void);
-void calc_itval_r2(volatile uint32_t ival_buf[], uint16_t buflen, uint16_t* itval, uint8_t* db);
-uint16_t interval_filter(volatile uint32_t in_buf[], uint16_t buflen, uint16_t* itval, uint8_t* db);
+void calc_itval_r2(volatile uint32_t ival_buf[], uint16_t buflen, float* itval, uint8_t* db);
+uint16_t interval_filter(volatile uint32_t in_buf[], uint16_t buflen, float* itval, uint8_t* db);
 
 
 

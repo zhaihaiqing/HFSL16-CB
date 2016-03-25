@@ -20,11 +20,10 @@ void TIM2_Configuration(void)
 	 /* TIM2 clock enable */
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
 	
-	
 
-  /* Enable the TIM1 global Interrupt */
+  /* Enable the TIM2 global Interrupt */
   NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn; //捕获中断
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;//抢占式  最高优先级
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;////抢占式  最高优先级
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStructure);
@@ -145,7 +144,7 @@ static uint8_t __log2(uint32_t x) {
  *
  */
 
-void calc_itval_r2(volatile uint32_t ival_buf[], uint16_t buflen, uint16_t* itval, uint8_t* db) { 
+void calc_itval_r2(volatile uint32_t ival_buf[], uint16_t buflen, float* itval, uint8_t* db) { 
     uint16_t i;
     static uint32_t buf[DATALEN], s = 0;
     float a=0, ybar=0, yhat=0, sst=0, sse=0;
@@ -163,7 +162,7 @@ void calc_itval_r2(volatile uint32_t ival_buf[], uint16_t buflen, uint16_t* itva
         sse += (buf[i] - yhat) * (buf[i] - yhat);
         yhat += a;  // since step = 1
     }
-    *itval = (uint16_t)a; 
+    *itval = a; 
     *db = (uint8_t)floor(10 * log10(sst / sse));
     //log_info("r^2=%f", log10(sse/sst));
 }
@@ -216,7 +215,7 @@ void calc_itval_r2(volatile uint32_t ival_buf[], uint16_t buflen, uint16_t* itva
 // return err_cnt; 
 // } 
 
-uint16_t interval_filter(volatile uint32_t in_buf[], uint16_t buflen, uint16_t* itval, uint8_t* db) {
+uint16_t interval_filter(volatile uint32_t in_buf[], uint16_t buflen, float* itval, uint8_t* db) {
     //uint16_t i, err_cnt=0, idx=0;
 		 uint16_t i, err_cnt1=0, err_cnt2=0, idx=0;
     static uint32_t acc=0, cntr, lbound, ubound, flt_buf[DATALEN]; 
