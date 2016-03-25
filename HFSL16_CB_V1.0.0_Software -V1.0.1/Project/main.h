@@ -13,7 +13,6 @@
 #include "InputCapture.h"
 #include "ds18b20.h"
 
-
 #pragma   pack(1)										    //结构体单字节对齐方式      #pragma pack(n)
 
 #define   TEMPSENSOR_LIMIT				-45
@@ -113,6 +112,10 @@ void GPIO_PinReverse(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
 
 void Delay(__IO uint32_t nTime);
 
+void PWM_Enable(void);
+void PWM_Disable(void);
+void PWM_Enable(void);
+void PWM_Configuration(unsigned int PwmFreq,unsigned char DutyCycles);
 typedef struct{
 	
 	unsigned char Sensor_Type;

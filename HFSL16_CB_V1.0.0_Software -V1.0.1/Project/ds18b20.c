@@ -67,7 +67,7 @@ unsigned char DS18B20_Read_Byte(void)
 	return dat;
 }
 
-void ReadROM()
+void ReadROM(void)
 {
 	unsigned char i;
 	DS18B20_Write_Byte(0x33);//·¢ËÍ¶ÁromÃüÁî

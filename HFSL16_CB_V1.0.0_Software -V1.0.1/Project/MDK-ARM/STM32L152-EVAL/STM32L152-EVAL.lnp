@@ -38,7 +38,7 @@
 ".\stm32l152-eval\stm32l1xx_wwdg.o"
 ".\stm32l152-eval\system_stm32l1xx.o"
 ".\stm32l152-eval\startup_stm32l1xx_md.o"
---library_type=microlib --strict --scatter ".\STM32L152-EVAL\STM32L152-EVAL.sct"
+--library_type=microlib --nodebug --strict --scatter ".\STM32L152-EVAL\STM32L152-EVAL.sct"
 
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

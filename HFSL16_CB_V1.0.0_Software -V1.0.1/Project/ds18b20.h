@@ -12,7 +12,7 @@ unsigned char DS18B20_Rst(void);
 unsigned char DS18B20_Read_Bit(void);
 unsigned char DS18B20_Read_Byte(void);															
 void DS18B20_Write_Byte(unsigned char dat);															
-void ReadROM();														
+void ReadROM(void);														
 float DS18B20_TEMP(void);
 
 															

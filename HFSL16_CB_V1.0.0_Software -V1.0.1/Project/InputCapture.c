@@ -154,7 +154,7 @@ void calc_itval_r2(volatile uint32_t ival_buf[], uint16_t buflen, float* itval, 
          buf[i] = s;
         ybar += s/buflen;
     }
-    a = (s - buf[0]) / buflen;
+    a = 1.0*(s - buf[0]) / (buflen-1);
 
     yhat = buf[0];
     for (i = 0; i < buflen; i++) { 

@@ -478,13 +478,13 @@ ARM Macro Assembler    Page 8
   317 0000001C                 END
               00000000 
               00000000 
-Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
-ork --depend=.\stm32l152-eval\startup_stm32l1xx_md.d -o.\stm32l152-eval\startup
-_stm32l1xx_md.o -I"E:\HD\HFSL16\HFS1601-CB\HFSL16_CB_V1.0.0_Software -V1.0.1\Pr
-oject\MDK-ARM\RTE" -IC:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Device\Includ
-e -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__MICROLIB SETA 1" --predefine="_
-_UVISION_VERSION SETA 514" --predefine="STM32L1XX_MD SETA 1" --list=.\stm32l152
--eval\startup_stm32l1xx_md.lst ..\..\Libraries\MDK-ARM\startup_stm32l1xx_md.s
+Command Line: --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\stm32l152-eval
+\startup_stm32l1xx_md.d -o.\stm32l152-eval\startup_stm32l1xx_md.o -I"D:\workfil
+es\SensorBoardCode\HFS1601\HFS1601-CB\HFSL16_CB_V1.0.0_Software -V1.0.1\Project
+\MDK-ARM\RTE" -IC:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Device\Include -IC
+:\Keil_v5\ARM\CMSIS\Include --predefine="__MICROLIB SETA 1" --predefine="STM32L
+1XX_MD SETA 1" --list=.\stm32l152-eval\startup_stm32l1xx_md.lst ..\..\Libraries
+\MDK-ARM\startup_stm32l1xx_md.s
 
 
 
@@ -1209,4 +1209,4 @@ Symbol: __main
       At line 143 in file ..\..\Libraries\MDK-ARM\startup_stm32l1xx_md.s
 Comment: __main used once
 2 symbols
-407 symbols in table
+406 symbols in table

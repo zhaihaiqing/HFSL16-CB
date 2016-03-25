@@ -51,7 +51,7 @@
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
-          <DebugInformation>1</DebugInformation>
+          <DebugInformation>0</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\STM32L152-EVAL\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32L1XX_MD, USE_STM32L152_EVAL</Define>
               <Undefine></Undefine>
-              <IncludePath>..\;..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc;C:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include;C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include</IncludePath>
+              <IncludePath>..\;..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc;C:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include;C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.3.0\CMSIS\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

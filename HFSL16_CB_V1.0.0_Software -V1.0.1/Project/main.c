@@ -224,6 +224,7 @@ char sample_stress_channel(unsigned char channel)//参数1234
 		{
 			if(databuf2[i] > databuf2[i+1]){databuf2[i+1] = databuf2[i]+1;}//过滤错误数据
 			databuf2[i] = databuf2[i+1]-databuf2[i]; //得到每个脉宽所用时钟数量
+      //printf("buf[%d]= %d\r\n",i,databuf2[i]);
 		}
 		calc_itval_r2(databuf2, DATALEN, &ival, &db);
 #ifdef	Debug_EN
@@ -352,6 +353,8 @@ uint16_t get_stress(unsigned char Channel)//参数1234
 		}
 	}
 	PWM_Disable();
+
+  return SUCCESS;
 }
 
 /*******************************************************************************
@@ -556,11 +559,13 @@ int main(void)
 #ifdef	Debug_EN
 	printf("Hardware had ready!\r\n");
 #endif
+  //初始化状态数据
 	Send_Buff.Sensor_Data[0].Sample_Status                    = 0x03;
 	Send_Buff.Sensor_Data[1].Sample_Status                    = 0x03;
 	Send_Buff.Sensor_Data[2].Sample_Status                    = 0x03;
 	Send_Buff.Sensor_Data[3].Sample_Status                    = 0x03;
-	while(!I2C_Received_Flag);      //等待主机发送采样指令
+	
+  while(!I2C_Received_Flag);      //等待主机发送采样指令
 	(void)Instruction_Check();		//指令检查函数
 //	Receive_CfgDATA.SampleType= 2;
 //	Receive_CfgDATA.Ch        = 0x0a;

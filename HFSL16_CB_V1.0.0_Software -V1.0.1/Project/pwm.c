@@ -1,8 +1,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-void PWM_Enable(void);
-void PWM_Configuration(unsigned int PwmFreq,unsigned char DutyCycles);
+
 
 /**********************************************************************************
 * Function Name  : PWM_Configuration
