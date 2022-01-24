@@ -6,7 +6,7 @@ int16_t TempValue[8] = {0,0,0,0,0,0,0,0};
 uint16_t 	DelayTime = 0;//延时计数值(ms)
 uint8_t 	DelayTimeFlag = 0;//计时标志
 #define DRIVE_TIME	1500		//激励时间配置
-#define	RETRY	3		//采样重试次数配置
+#define	RETRY	1		//采样重试次数配置
 
 unsigned int  SysTick_Count;//定义SysTick计数器
 Send_Buff_tagdef         Send_Buff;					//定义向主机发送数据缓存区
@@ -226,6 +226,9 @@ char sample_stress_channel(unsigned char channel)//参数1234
 			databuf2[i] = databuf2[i+1]-databuf2[i]; //得到每个脉宽所用时钟数量
       //printf("buf[%d]= %d\r\n",i,databuf2[i]);
 		}
+    
+    databuf2[0] = databuf2[1];//解决频率过高时第二个采样通道采样失败的bug
+    
 		calc_itval_r2(databuf2, DATALEN, &ival, &db);
 #ifdef	Debug_EN
 		printf("Chan %d before_filter:k= %f db= %d freq= %.3f\r\n",channel, ival, db, (float) SystemCoreClock / ival);
@@ -242,7 +245,7 @@ char sample_stress_channel(unsigned char channel)//参数1234
 		printf("Chan %d after_filter:k= %f db= %d err_cnt= %d freq= %.3f\r\n",channel, ival, db,err_cnt, freq32 );
 #endif
 		FreqValue=freq32;
-		if((db < 35) || (err_cnt > 10))return ERROR;//测量失败则返回错误		
+		//if((db < 35) || (err_cnt > 10))return ERROR;//测量失败则返回错误		
 		return SUCCESS;//返回成功
 	}
 return ERROR;
@@ -344,7 +347,7 @@ uint16_t get_stress(unsigned char Channel)//参数1234
 		printf("第%d次采样\r\n",RetryVal+1);
 #endif
 		if(sample_stress_channel(Channel) == SUCCESS)break;//应变信号采集并输出-->TPX	
-		else if(RetryVal == 2)
+		else if(RetryVal == (RETRY - 1))
 		{
 			Stress_Flag=0x01;
 #ifdef	Debug_EN
@@ -419,12 +422,16 @@ void Auto_Smaple(void)
 		TEMP_Flag =0;
 		FreqValue =0;
 		temp_data =0;
+    
 		(void)get_temp_analog(0,i);	//执行模拟温度采样，先执行模拟采样，成功该位置0  
 		if(temp_data<TEMPSENSOR_LIMIT)				//失败执行数字采样，成功该位置1
 		{	
 			(void)get_temp_ds18b20(i);//再执行数字温度采样
 			 SensorType_Flag = 0x01;        
 		}
+    else
+      SensorType_Flag = 0x0;//温度在范围内则标记为电阻温度传感器
+    
 		if(temp_data<TEMPSENSOR_LIMIT)
 		{
 			TEMP_Flag=0x01;//标记温度采样失败//都失败
@@ -433,7 +440,7 @@ void Auto_Smaple(void)
 #endif
 		}
 		/***********再执行激励采样**********************/
-		if(!TEMP_Flag)
+		if(!TEMP_Flag)//该通道温度正确再采样，温度不对则不采样
 			{
 				(void)(get_stress(i));
 				DataPrepare(i);
@@ -452,9 +459,14 @@ void Half_Auto_Sample(void)
 {
 	unsigned char i;
 	unsigned char DATA_tmp=0x01;
+  
 	for(i=1;i<5;i++)
 	{
-		if(Receive_CfgDATA.Ch & DATA_tmp)
+    TEMP_Flag =0;
+    FreqValue =0;
+    temp_data =0;
+    
+		if(Receive_CfgDATA.Ch & DATA_tmp)//根据通道数据执行采样
 		{
 			(void)get_temp_analog(0,i);	//执行模拟温度采样，先执行模拟采样，成功该位置0  
 			if(temp_data<TEMPSENSOR_LIMIT)				//失败执行数字采样，成功该位置1
@@ -462,6 +474,9 @@ void Half_Auto_Sample(void)
 				(void)get_temp_ds18b20(i);//再执行数字温度采样
 				SensorType_Flag = 0x01;        
 			}
+      else
+        SensorType_Flag = 0x0;//温度在范围内则标记为电阻温度传感器
+      
 			if(temp_data<TEMPSENSOR_LIMIT)
 			{
 				TEMP_Flag=0x01;//标记温度采样失败//都失败
@@ -491,15 +506,21 @@ void Manual_Sample(void)
 	unsigned char DATA_tmp=0x01;
 	for(i=1;i<5;i++)
 	{
-		if(Receive_CfgDATA.Ch & DATA_tmp)
+		TEMP_Flag =0;
+    FreqValue =0;
+    temp_data =0;
+    if(Receive_CfgDATA.Ch & DATA_tmp)//根据通道数据执行采样
 		{
 			if(Receive_CfgDATA.SensorType & DATA_tmp)
 			{
 				(void)get_temp_ds18b20(i);//再执行数字温度采样//执行数字采样
-				SensorType_Flag = 0x01; 
+				SensorType_Flag = 0x01; //标记为数字温度传感器
 			}
 			else
+      {
 				(void)get_temp_analog(0,i);//执行模拟采样
+        SensorType_Flag = 0x0; //标记为电阻温度传感器
+      }
 			if(temp_data<TEMPSENSOR_LIMIT)
 			{
 				TEMP_Flag=0x01;//标记温度采样失败//都失败
@@ -542,7 +563,8 @@ void Process(void)
 *******************************************************************************/
 int main(void)
 {
-	/******************外设配置***********************/
+	int i;
+  /******************外设配置***********************/
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);//中断优先级分组
 	if (SysTick_Config(SystemCoreClock / 1000))while(1);	
 	TIM6_Configuration();     //TIM6  延时
@@ -572,6 +594,12 @@ int main(void)
 //	Receive_CfgDATA.SensorType= 2;
 	
 	Process();	//采样任务
+#ifdef	Debug_EN  
+  for(i = 0;i < 4;i++)
+  {
+    printf("(%d)Sensor_Type=%d\tSample_Status=%d\tFreq=%f\ttemp=%f\tdb=%d\terr=%d\r\n",i,Send_Buff.Sensor_Data[i].Sensor_Type,Send_Buff.Sensor_Data[i].Sample_Status,Send_Buff.Sensor_Data[i].Freq_Value,Send_Buff.Sensor_Data[i].Temp_Value,Send_Buff.Sensor_Data[i].DB_Value,Send_Buff.Sensor_Data[i].Err_Value);
+  }
+#endif 
 	EXIT_OUT_H;	//中断置位
 	OpenSampleLed(0);
 	while(1);				

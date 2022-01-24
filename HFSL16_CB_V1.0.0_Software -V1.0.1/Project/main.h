@@ -15,7 +15,7 @@
 
 #pragma   pack(1)										    //结构体单字节对齐方式      #pragma pack(n)
 
-#define   TEMPSENSOR_LIMIT				-45
+#define   TEMPSENSOR_LIMIT				-41
 #define   WatchDog_EN
 #define		Debug_EN
 

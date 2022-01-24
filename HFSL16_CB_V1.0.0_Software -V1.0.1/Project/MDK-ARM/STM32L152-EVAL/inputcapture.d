@@ -4,10 +4,11 @@
 .\stm32l152-eval\inputcapture.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\stm32l152-eval\inputcapture.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\stm32l152-eval\inputcapture.o: C:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include\stm32l1xx.h
-.\stm32l152-eval\inputcapture.o: C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.3.0\CMSIS\Include\core_cm3.h
+.\stm32l152-eval\inputcapture.o: C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm3.h
 .\stm32l152-eval\inputcapture.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\stm32l152-eval\inputcapture.o: C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmInstr.h
-.\stm32l152-eval\inputcapture.o: C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmFunc.h
+.\stm32l152-eval\inputcapture.o: C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\stm32l152-eval\inputcapture.o: C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\stm32l152-eval\inputcapture.o: C:\Keil_v5\ARM\Pack\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
 .\stm32l152-eval\inputcapture.o: C:\Keil_v5\ARM\Pack\Keil\STM32L1xx_DFP\1.0.2\Device\Include\system_stm32l1xx.h
 .\stm32l152-eval\inputcapture.o: ..\stm32l1xx_conf.h
 .\stm32l152-eval\inputcapture.o: ..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc\stm32l1xx_comp.h
